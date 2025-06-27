@@ -1,0 +1,62 @@
+{% extends 'headerfooter.html' %}
+
+{% block content %}
+{% load static  %}
+{{message}}
+<link rel="stylesheet" href="{% static 'css/basket.css' %}">
+<link rel="stylesheet" href="{% static 'css/order.css' %}">
+<section>
+    {% if type == 2  %}
+        <center><a href="/doauto"><button>Авторизоваться</button></a></center>
+    {% endif %}
+
+    {% if data.type == 1 %}
+        <h2>Ваша корзина</h2>
+        <ul>
+        {% for el in data.strSQL1 %}
+            {% for el2 in data.strSQL2 %}
+                {% if el.id_bike == el2.id %}
+                    <li><h3>{{ el2.name_bike }}</h3>
+                    <img src="static/img/{{el2.photo}}">
+                    <p>Цена: {{ el2.price }}</p>
+                    <p>Количество: {{ el.kolvo }}</p>
+                    <center><table>
+                        <tr>
+                            <td><a href="dobasket?type=1&id_bike={{ el2.id }}" title="Увеличение"><button>+</button></a></td>
+                            <td><a href="dobasket?type=2&id_bike={{ el2.id }}" title="Уменьшение"><button>-</button></a></td>
+                        </tr>
+                    </table></center>
+                    <a href="dobasket?type=3&id_bike={{ el2.id }}"><button>Удалить</button></a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </ul>
+        <center><table>
+            <tr>
+                <td align="right"></td><td align="right"><i>ИТОГ:</i></td>
+                <td align="right">{{ data.sum }}</td>
+            </tr>
+        </table></center>
+    <form action= "doorder/" method=post>
+        {% csrf_token %}
+        <center><table>
+        <tr>
+            <td align="right">
+                <br><b>способ доставки:</b>
+                    <input type="radio" value=1 name="delivery" checked> почта России
+                     <input type="radio" value=2 name="delivery" > курьер
+                    <input type="radio" value=3 name="delivery" > самовывоз
+            </td>
+        </tr>
+            <tr>
+                <td align="center">
+                    <button> <input type="submit" value="Отправить заказ" ></button>
+
+                </td>
+            </tr>
+            </table></center>
+    </form>
+    {% endif %}
+</section>
+{% endblock %}

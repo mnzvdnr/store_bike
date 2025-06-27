@@ -1,0 +1,27 @@
+section{
+    background-color:#EEF6FF;
+   }
+section table {
+        background-color:#EEF6FF;
+        height: 400px;
+        width: 100%;
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+input[type=submit]{
+        margin-top:20px;
+        background-color:#F27405;
+       color: #fff;
+       border: none;
+       padding: 7px 15px;
+       cursor: pointer;
+       border-radius: 4px;
+    }
+input[type=submit]:hover{
+        padding: 8px 17px;
+    }
+p a{
+        color: #000;
+    }
+p a:hover{
+        color:#F27405;
+    }

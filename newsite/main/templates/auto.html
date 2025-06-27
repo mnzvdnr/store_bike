@@ -1,0 +1,27 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+{% load static  %}
+<link rel="stylesheet" href="{% static 'css/auto.css' %}">
+{{ message }}
+
+{% if type == 0 %}
+    <b>Возможно вы хотите <a href="/reg"> зарегистрироваться </a> </b>
+{% endif %}
+<section>
+    <form action="..\\postuser/" method=post>
+        {% csrf_token %}
+        <tr><td align="center" height="20px">
+            <table border="0" width="80%" align="right">
+                <tr><td align="right"><i>Логин: </i></td>
+                    <td><input tipe=text name=login_cust value="{{ login_cust }}"></td></tr>
+                <tr><td align="right"><i>Пароль: </i></td>
+                    <td><input tipe=text name=parol value="{{ parol }}"></td></tr>
+                <input type=hidden value="1" name=type>
+                <tr><td align="right"></td>
+                    <td><input type=submit value="ОТПРАВИТЬ"></td></tr>
+                    <tr height="20px"></tr>
+            </table>
+            </td></tr>
+    </form>
+</section>
+{% endblock %}

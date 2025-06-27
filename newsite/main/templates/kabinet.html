@@ -1,0 +1,79 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+{% load static  %}
+<link rel="stylesheet" href="{% static 'css/kabinet.css' %}">
+<section>
+{{ message }}
+<form action= "change/" method=post>
+        {% csrf_token %}
+                <h2>Ваши личные данные</h2>
+                <table border="0" width="100%" align="right">
+                    <tr><td  width="25%%"><i>Фамилия: </i></tr>
+                        <td width="25%%"><input type=text name=familiya value="{{data.strSQL.familiya}}"></td>
+                    </tr>
+                    <tr>
+                        <td  width="25%%"><i>Имя: </i></tr>
+                        <td width="25%%"><input type=text name=imya value="{{data.strSQL.imya}}"></td>
+                    </tr>
+                    <tr>
+                        <td ><i>Адрес: </i></tr>
+                        <td><input type=text name=adres value="{{data.strSQL.adres}}"></td>
+                    </tr>
+                    <tr>
+                        <td ><i>E-mail: </i></tr>
+                        <td><input type=text name=mail value="{{data.strSQL.mail}}"></td>
+                    </tr>
+                    <tr>
+                        <td  align="center">
+                            <i>Подписка на рассылку</i> <input type="checkbox" value="1" name="podpiska" {% if data.strSQL.podpiska == 1 %} checked {% endif %}>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" >
+                            <input type="submit" value="СОХРАНИТЬ ИЗМЕНЕНИЯ">
+                        </td>
+                    </tr>
+                </table>
+</form>
+     <h2>Ваши заказы</h2>
+       {%for el1 in data.strSQL1%}
+                    <b>Заказ номер: {{ el1.id_order }} от {{ el1.date_order }}<br></b>
+                    <table border="1" width="100%" align="right" style="margin-left:50px, margin-right:50px">
+                        <tr>
+                            <td align="right" width="40%"><i>Название: </i></td>
+                            <td align="right" width="30%"><i>Цена: </i></td>
+                            <td align="right" width="30%"><i>Количество: </i></td>
+                        </tr>
+
+                            {% for el2 in data.strSQL2 %}
+                                {% if el2.id_order == el1.id_order %}
+                                    {% for el3 in data.strSQL3 %}
+                                        {% if el3.id == el2.id_bike%}
+                                        <tr>
+                                          <td><b>{{ el3.name_bike }}</b></td>
+                                          <td>{{ el3.price }}</td>
+                                          <td>{{ el2.kolvo }}</td>
+                                        </tr>
+                                        {% endif %}
+                                      {% endfor %}
+                                    {% endif %}
+                                  {% endfor %}
+                                        <tr >
+                                            <td></td>
+                                            <td></td>
+                                            <td>Способ доставки:
+                                            {% if el1.discount == 1%}
+                                              Почта России</td>
+                                            {% endif %}
+                                            {% if el1.discount == 2%}
+                                              Курьером по адресу: {{ data.strSQL.adres }}</td>
+                                            {% endif %}
+                                            {% if el1.discount == 3%}
+                                                 Самовывоз</td>
+                                            {% endif %}
+                                        </tr>
+                    </table>
+                {%endfor%}
+                    <tr><td><center><a href=exit><button>Выйти</button></a></center></td></tr>
+</section>
+{% endblock %}

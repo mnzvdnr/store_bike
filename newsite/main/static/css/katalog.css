@@ -1,0 +1,91 @@
+h3{
+      color: #4E74A6;
+      }
+table{
+        margin-left:10px;
+        margin-bottom: 10px;
+        margin-top:20px;
+      }
+ table ul {
+       list-style: none;
+       display: flex;
+       flex-wrap: wrap;
+      }
+table ul li {
+      flex-basis: calc(20.33% - 10px);
+       margin-right: 20px;
+       background-color: #EEF6FF;
+       padding: 10px;
+       text-align: center;
+       font-size: 16px;
+      }
+table ul li a {
+        color:#F27405;
+        text-decoration: none;
+      }
+table ul li a:hover {
+       font-size: 18px;
+       text-decoration: underline;
+       }
+section {
+       margin-bottom: 10px;
+       margin-top: 10px;
+      }
+section h2 {
+       margin-top: 0;
+      }
+section ul {
+       list-style: none;
+       display: flex;
+       flex-wrap: wrap;
+       margin-left: 20px;
+       margin-top: 5;
+      }
+section li {
+       flex-basis: calc(45.33% - 10px);
+       margin-right: 20px;
+       margin-bottom: 20px;
+       background-color: #EEF6FF;
+       padding: 10px;
+       text-align: center;
+      }
+section li img {
+       max-width: 100%;
+       height: auto;
+       margin-bottom: 30px;
+       margin-top:10px
+      }
+section li img :hover {
+        height: 200px;
+        width: 300px;
+      }
+section li h3 {
+       margin-top: 10px;
+       color: #F27405;
+      }
+section li p {
+       margin-bottom: 15px;
+       margin-top:15px;
+       color: #000;
+       font-size: 20px;
+      }
+section li button {
+       background-color:#F27405;
+       color: #fff;
+       border: none;
+       padding: 5px 10px;
+       cursor: pointer;
+       border-radius: 4px;
+      }
+ section li button:hover {
+       padding: 7px 12px;
+      }
+section ul li a {
+        color:#F27405;
+        font-size: 18px;
+       text-decoration: none;
+      }
+section ul li a:hover {
+       font-size: 20px;
+       text-decoration: underline;
+      }

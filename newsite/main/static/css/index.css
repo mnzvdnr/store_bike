@@ -1,0 +1,51 @@
+{% load static  %}
+h2{
+    color: #4E74A6;}
+h3{
+    color:#F27405;}
+table{
+    padding: 0;
+    font-size: 15px;
+    margin-left: 40px}
+tr{
+    height: 250px;}
+tr:hover{
+    height: 270px;
+    width: 400px;
+    }
+.kastom{
+    background-image: url("../img/1img.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;}
+.material{
+    background-image: url('../img/двигатель.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;}
+.top{
+    background-image: url('../img/karkas.png' );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;}
+.garant{
+    background-image: url('../img/garant.png' );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;}
+.rab{
+    background-image: url( '../img/rab.jpeg' );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;}
+.logo{
+    background-image: url( '../img/выделяемся.png' );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;}

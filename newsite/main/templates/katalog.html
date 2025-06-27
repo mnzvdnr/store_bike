@@ -1,0 +1,46 @@
+{% extends 'headerfooter.html' %}
+{% block content %}
+{% load static  %}
+    <link rel="stylesheet" href="{% static 'css/katalog.css' %}">
+    <h1>Фильтр {{ filter.type}} {{ filter.id_power }} {{ filter.id_bc }}</h1>
+    <table  width=68%>
+    <tr><td width="34%"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Объём аккуиулятора:</h3><ul>
+    {% for el in filter.p %}
+        <li><a href="?type=1&id_power={{ el.id }}">{{ el }}</a>
+    {% endfor %}
+        </ul></td>
+        <td width="34%"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Мощность двигателя:</h3><ul>
+    {% for el in filter.bc %}
+        <li><a href="?type=2&id_bc={{ el.id }}">{{ el }}</a>
+    {% endfor %}
+        </ul></td>
+    </tr>
+    </table>
+
+    <section id="katalog_section">
+        <h1>Каталог</h1>
+            <ul>
+                {% for el in filter.bike %}
+                <li>
+                <h3>{{ el }}</h3>
+                <img src="static/img/{{el.photo}}">
+                <p>{{ el.description_bike }}</p>
+                <p>Мощьность двигателя:<a href="?type=1&id_power={{ el.id_pover }}">
+                    {% for el2 in filter.p %}
+                        {% if el2.id == el.id_pover %}
+                            {{ el2 }}</a></p>
+                        {% endif %}
+                    {% endfor %}
+                <p>&nbsp;&nbsp;&nbsp;Объём аккумулятора: <a href="?type=2&id_bc={{ el.id_bc }}">
+                    {% for el2 in filter.bc %}
+                        {% if el2.id == el.id_bc %}
+                            {{ el2 }}</a></p>
+                        {% endif %}
+                    {% endfor %}
+                <p>Цена: {{ el.price }}</p>
+                <a href="dobasket?type=1&id_bike={{ el.id }}"><button>Добавить</button></a>
+                </li>
+                {% endfor %}
+            </ul>
+    </section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'headerfooter.html' %}
+{% load static  %}
+{% block content %}
+
+ <link rel="stylesheet" href="{% static 'css/index.css' %}">
+ <section id="about-us">
+   <h2>{{cookie}}</h2>
+   <table cellspacing="40"  width="90%" bordercolor = " #fff">
+     <tr>
+         <td class="kastom">
+             <h3>Наша компания занимается производством кастомизированных электровелосипедов</h3>
+          </td>
+          <td class="material">
+	         <h3>В производстве велосипедов используются исключительно качественные материалы</h3>
+          </td>
+          <td class="garant">
+            <h3>Мы гарантируем быструю доставку и отличное обслуживание после покупки.</h3>
+         </td>
+     </tr>
+     <tr>
+        <td class="rab" >
+          <h3>Над каждым элетробайком работают лучшие дизайнеры и инжинеры</h3>
+        </td>
+        <td class="top">
+          <h3>Качество нашего продукта занимает превое место на Российском рынке</h3>
+        </td>
+        <td class="logo">
+          <h3>Хочешь выделятся среди остальных-Выбирай нас</h3>
+       </td>
+     </tr>
+   </table>
+ </section>
+{%endblock%}

@@ -1,0 +1,45 @@
+{% load static  %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>e-bike</title>
+    <link rel="stylesheet" href="{% static 'css/headerfooter.css' %}">
+</head>
+<body>
+    <header>
+        <p class="logoimg"> <img src="{% static 'img/logo.jpg' %}" height="152px"></p>
+        <h1>e-bike</h1>
+        <h1>Магазин электровелосипедов</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="{% url 'katalog' %}">Каталог</a></li>
+            <li><a href="#footer">Контакты</a></li>
+            <li><a href="{% url 'basket' %}">Корзина</a></li>
+            <li><a href="{% url 'auto' %}">Личный кабинет</a></li>
+            <li><a href="{% url 'reg' %}">Регистрация</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer><a name="footer"></a>
+        <ul>
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="{% url 'katalog' %}">Каталог</a></li>
+            <li><a href="{% url 'basket' %}">Корзина</a></li>
+            <li><a href="{% url 'auto' %}">Личный кабинет</a></li>
+            <li><a href="{% url 'reg' %}">Регистрация</a></li>
+        </ul>
+        <p><a href="#">+7(919)-620-66-44</a></p>
+        <p>Россия г.Альметьевск Монтажная 12В</p>
+        <p>© Магазин электровелосипедов 2023</p>
+</footer>
+</body>
+</html>
